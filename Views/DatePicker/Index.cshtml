@@ -1,0 +1,36 @@
+﻿@model DatePicker.Models.Datepickermodel
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<h2>
+    Select Date : 
+</h2>
+
+@using (Html.BeginForm("PostData", "DatePicker", FormMethod.Post))
+{
+    @Html.EditorFor(x=> x.dateData, new { htmlAttributes = new { @class = "datepicker"}});
+
+
+    <div class="form-group mt-2">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </div>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+   $(".datepicker").datepicker({
+      dateFormat: "dd-mm-yy",
+      changemonth: true,
+      changeyear: true
+      });
+   });
+</script>
